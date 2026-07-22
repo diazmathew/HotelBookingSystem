@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] { display: none !important; }
+
+@layer base {
+    body {
+        @apply bg-ivory-100 text-jade-900;
+    }
+}
+
+@layer components {
+    /* Eyebrow label used above section headings, hotel-brochure style */
+    .eyebrow {
+        @apply inline-flex items-center gap-3 text-[11px] tracking-[0.35em] uppercase text-gold-600 font-medium;
+    }
+    .eyebrow::before {
+        content: '';
+        @apply block w-6 h-px bg-gold-500;
+    }
+
+    /* Ornamental divider: hairline — diamond — hairline */
+    .divider-ornament {
+        @apply flex items-center justify-center gap-3 my-6 select-none;
+    }
+    .divider-ornament::before,
+    .divider-ornament::after {
+        content: '';
+        @apply h-px w-12 bg-gold-400/70;
+    }
+    .divider-ornament span {
+        @apply block w-2 h-2 rotate-45 border border-gold-500;
+    }
+
+    .heading-display {
+        @apply font-display text-jade-900 tracking-wide;
+    }
+
+    .btn-gold {
+        @apply btn-press inline-flex items-center justify-center gap-2 px-7 py-3 bg-gold-500 text-jade-950 font-medium text-sm tracking-[0.15em] uppercase hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-300 focus:ring-offset-2 focus:ring-offset-jade-950 transition-colors duration-200;
+    }
+
+    .btn-gold-outline {
+        @apply btn-press inline-flex items-center justify-center gap-2 px-7 py-3 border border-gold-400 text-gold-600 font-medium text-sm tracking-[0.15em] uppercase hover:bg-gold-500 hover:text-jade-950 hover:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300 transition-colors duration-200;
+    }
+
+    .btn-jade {
+        @apply btn-press inline-flex items-center justify-center gap-2 px-7 py-3 bg-jade-800 text-ivory-100 font-medium text-sm tracking-[0.15em] uppercase hover:bg-jade-700 focus:outline-none focus:ring-2 focus:ring-jade-400 focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    .card-luxury {
+        @apply bg-white border border-jade-800/10 shadow-luxury;
+    }
+
+    .input-luxury {
+        @apply w-full border-jade-800/20 bg-ivory-50 text-jade-900 placeholder-jade-800/40 rounded-none focus:border-gold-500 focus:ring-gold-400 input-focus;
+    }
+
+    .label-luxury {
+        @apply block text-xs uppercase tracking-[0.2em] text-jade-700 font-medium mb-2;
+    }
+}
+
+@layer utilities {
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scale-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes shake {
+        10%, 90% { transform: translateX(-1px); }
+        20%, 80% { transform: translateX(2px); }
+        30%, 50%, 70% { transform: translateX(-4px); }
+        40%, 60% { transform: translateX(4px); }
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.8); opacity: 0; }
+        60% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+
+    .animate-fade-in { animation: fade-in 0.4s ease-out both; }
+    .animate-scale-in { animation: scale-in 0.25s ease-out both; }
+    .animate-shake { animation: shake 0.4s ease-in-out; }
+    .animate-pop { animation: pop 0.35s ease-out both; }
+
+    .stagger-1 { animation-delay: 0.05s; }
+    .stagger-2 { animation-delay: 0.1s; }
+    .stagger-3 { animation-delay: 0.15s; }
+    .stagger-4 { animation-delay: 0.2s; }
+
+    .card-hover {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px -8px rgba(0,0,0,0.18);
+    }
+
+    .btn-press {
+        transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .btn-press:active {
+        transform: scale(0.96);
+    }
+
+    .input-focus {
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .row-flash {
+        animation: fade-in 0.35s ease-out both;
+    }
+}
+
